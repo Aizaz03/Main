@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $primaryColor;
+}
+
+.header {
+  @include flex(space-between, center, 0.625rem);
+  margin: 2.25rem 2rem;
+
+  @media screen and (min-width: 1024px) {
+    margin: 1.5rem 5rem;
+  }
+
+  .image-wrapper {
+    @include flex(start, center, 2.5rem);
+    img {
+      width: 5.875rem;
+      height: 2rem;
+    }
+    p {
+      @include flex(start, center, 0.5rem);
+      border-left: 0.0625rem solid $lightGrey;
+      padding-left: 2.5rem;
+      font-family: "DM Sans", sans-serif;
+      display: none;
+
+      @media screen and (min-width: 64rem) {
+        display: flex;
+      }
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  .menu-listing {
+    @include flex(start, center, 1.5rem);
+    ul {
+      @include flex(start, center, 1.5rem);
+      display: none;
+
+      @media screen and (min-width: 90rem) {
+        display: flex;
+      }
+
+      li {
+        list-style: none;
+        a {
+          @include flex(start, center, 0.75rem);
+          @include font-styles($primaryGrey, 0.875rem, 700, 1rem, center, 0);
+          font-family: "DM Sans", sans-serif;
+          text-decoration: none;
+
+          img {
+            height: 1rem;
+            width: 1rem;
+          }
+        }
+      }
+    }
+    button {
+      @include font-styles($buttonColor, 0.875rem, 700, 1rem, center, 0);
+      padding: 0.625rem 0.9375rem;
+      border: 2px solid $lightGrey;
+      border-radius: 5.625rem;
+      background: transparent;
+      display: none;
+
+      @media screen and (min-width: 64rem) {
+        display: block;
+      }
+    }
+    .img-wrapper {
+      @include flex(start, center, 1.25rem);
+      img {
+        position: relative;
+        &:nth-child(1) {
+          height: 1.5rem;
+          width: 1.5rem;
+
+          &::after {
+            content: "";
+            background-color: green;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+          }
+        }
+        &:nth-child(2) {
+          height: 2rem;
+          width: 2rem;
+        }
+        &:nth-child(3) {
+          height: 2rem;
+          width: 2rem;
+
+          @media screen and (min-width: 64rem) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.main {
+  margin: 0 1rem;
+  position: relative;
+  .booking {
+    background: $bgGradientColor;
+    border-radius: 24px 24px 0 0;
+    .content {
+      @include flex(center, center, 1rem, column);
+      padding: 5rem 1rem 0;
+      h1 {
+        @include font-styles($buttonColor, 4rem, 700, 4rem, center, -0.125rem);
+        font-family: "DM Sans", sans-serif;
+      }
+      p {
+        font-family: "DM Sans", sans-serif;
+        @include font-styles($buttonColor, 1rem, 500, 1.5rem, center, 0);
+      }
+      button {
+        @include font-styles($lightTextColor, 1rem, 700, 1rem, center, 0);
+        background-color: $buttonBgColor;
+        padding: 14px 1.5rem;
+        border: none;
+        border-radius: 5.625rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  .hero-banner {
+    background-image: url(../Assets/Images/hero-banner.png);
+    position: absolute;
+    top: 15.625rem;
+    background-size: cover;
+    height: 35.375rem;
+    z-index: -1;
+    width: 100%;
+  }
+}
